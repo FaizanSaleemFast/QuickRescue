@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+ 
+	 <class name="com.globalrescue.QuickRescue.entities.Contact" table="contact">
+	 	<meta attribute="class-description">
+	 		This class contains details of contacts (employees) of member/customer account.
+	 	</meta>
+	 	
+	 	<id name="contactId" type="int" column="contactId">
+	 		<generator class="native"></generator>
+	 	</id>
+	 	
+	 	<property name="firstName" type="string" column="first_name"></property>
+	 	<property name="lastName" type="string" column="last_name"></property>
+	 	<property name="emailAddress" type="string" column="email_address"></property>
+	 	<property name="gender" type="char" column="gender"></property>
+	 	<property name="phone" type="string" column="phone"></property>
+	 	<property name="status" type="int" column="status"></property>
+	 	<property name="streetAddress" type="string" column="street_address"></property>
+	 	<property name="city" type="string" column="city"></property>
+	 	<property name="state" type="string" column="state"></property>
+	 	<property name="country" type="string" column="country"></property>
+	 	
+	 	 <many-to-one name="account" class="com.globalrescue.QuickRescue.entities.Account" column="accountId" not-null="true" />
+	 </class>
+ 
+ </hibernate-mapping>

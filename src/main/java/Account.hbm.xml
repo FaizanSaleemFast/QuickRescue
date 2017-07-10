@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+ 
+	 <class name="com.globalrescue.QuickRescue.entities.Account" table="account">
+	 	<meta attribute="class-description">
+	 		This class contains member/customer's accounts details.
+	 	</meta>
+	 	
+	 	<id name="accountId" type="int" column="accountId">
+	 		<generator class="native"></generator>
+	 	</id>
+	 	
+	 	<property name="emailDomain" type="string" column="email_domain"></property>
+	 	<property name="name" type="string" column="name" ></property>
+	 	<property name="timeZoneCity" type="string" column="time_zone_city"></property>
+	 	
+	 	
+	 	<set name="contacts" inverse="true" cascade="all">
+	 		<key column="accountId" not-null="true" />
+	 		<one-to-many class="com.globalrescue.QuickRescue.entities.Contact" />
+	 	</set>
+	 	
+	 </class>
+ 
+ </hibernate-mapping>
